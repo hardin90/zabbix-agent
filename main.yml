@@ -1,0 +1,16 @@
+---
+- name: Install zabbix-agent2
+  hosts: localhost
+  any_errors_fatal: true
+  strategy: linear
+  connection: ssh
+  gather_facts: false
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Install zabbix-agent2
+      ansible.builtin.package:
+        name: zabbix-agent2
+        state: latest
+        update_cache: true
